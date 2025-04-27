@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ultra-Low Latency Communication System for live events, sports, and corporate gatherings." />
+  <title>Ultra-Low Latency Communication System | Masterminds Rentals</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary-color: #000;
+      --accent-color: #fff;
+      --font-main: 'Inter', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-main);
+      background-color: #f5f5f5;
+      color: var(--primary-color);
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    nav {
+      background-color: var(--primary-color);
+      color: var(--accent-color);
+      padding: 1rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-brand {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .nav-toggle span {
+      width: 25px;
+      height: 3px;
+      background: var(--accent-color);
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-direction: row;
+      gap: 1.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      transition: max-height 0.3s ease;
+    }
+
+    .nav-links li a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links li a:hover {
+      color: #ccc;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        width: 100%;
+        overflow: hidden;
+        max-height: 0;
+        margin-top: 0;
+      }
+
+      .nav-links.open {
+        max-height: 500px;
+        margin-top: 1rem;
+      }
+    }
+
+    header, section {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    header {
+      background-color: var(--primary-color);
+      color: var(--accent-color);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    header h2 {
+      margin-top: 1rem;
+      font-size: 1.25rem;
+      font-weight: 400;
+    }
+
+    .cta-btn {
+      margin-top: 2rem;
+      background: var(--accent-color);
+      color: var(--primary-color);
+      padding: 0.75rem 1.5rem;
+      border: 2px solid var(--accent-color);
+      font-weight: 600;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background: transparent;
+      color: var(--accent-color);
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .grid-item {
+      background: var(--accent-color);
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    footer {
+      background: var(--primary-color);
+      color: var(--accent-color);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+    }
+
+    a {
+      color: var(--primary-color);
+      text-decoration: underline;
+    }
+
+    a:hover {
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-brand">Masterminds Rentals</div>
+    <div class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#who">Who We Are</a></li>
+      <li><a href="#rentals">Rentals</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#opensource">Open Source</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
+  <header>
+    <h1>Ultra-Low Latency Communication System</h1>
+    <h2>For Events, Sports, and More</h2>
+    <button class="cta-btn" onclick="location.href='mailto:funlightingsystems@gmail.com'">Learn More & Become a Backer</button>
+  </header>
+
+  <!-- About the Product -->
+  <section id="who">
+    <h2 class="section-title">Transform Your Communication</h2>
+    <p>Introducing our revolutionary Ultra-Low Latency Communication System — built with open-source technology and designed for live events, corporate gatherings, and athletic sports like football and hockey. Whether you’re a coach, referee, event organizer, or broadcaster, our system ensures seamless, real-time communication, no matter where you are.</p>
+  </section>
+
+  <!-- Who Can Use This System -->
+  <section id="rentals">
+    <h2 class="section-title">Who Can Use This System?</h2>
+    <ul>
+      <li><strong>Live Events:</strong> Keep everyone connected with crystal-clear audio from speakers to the crew, staff, and attendees.</li>
+      <li><strong>Corporate Events:</strong> Ensure smooth communication for your event team, whether you’re running a seminar or conference.</li>
+      <li><strong>Athletic Sports:</strong> Coaches and refs can communicate instantly, while fans stay involved with calls broadcasted live.</li>
+    </ul>
+  </section>
+
+  <!-- Key Features -->
+  <section id="why">
+    <h2 class="section-title">Key Features</h2>
+    <ul>
+      <li><strong>Ultra-Low Latency:</strong> Tested with up to 10 users, with a theoretical limit of 100 users. High-quality communication even in larger groups.</li>
+      <li><strong>Works Anywhere:</strong> No internet required for local use. Internet allows global communication (testing ongoing).</li>
+      <li><strong>Easy Setup:</strong> BYOD — simply pair mobile phones, tablets, or desktops to Bluetooth headsets.</li>
+      <li><strong>Affordable & Open Source:</strong> Built on open-source Mumble technology, providing reliability without the expensive price tag.</li>
+    </ul>
+  </section>
+
+  <!-- How It Works -->
+  <section id="testimonials">
+    <h2 class="section-title">How It Works</h2>
+    <p>The system operates through a Mumble-based server, connected to Bluetooth headsets. Participants use their own mobile devices, tablets, or desktops, paired via Bluetooth. Whether for events or sports, communication is instant and clear, even without the internet. Global connectivity is possible when connected via the internet.</p>
+  </section>
+
+  <!-- Backer Packages -->
+  <section id="opensource">
+    <h2 class="section-title">Support Packages</h2>
+    <p>Join us as a backer and get exclusive rewards, recognition, and early access to the system.</p>
+
+    <h3>$10 Backer</h3>
+    <ul>
+      <li>Your name inside the rental kit case.</li>
+      <li>A thank-you card.</li>
+      <li>A keychain as a token of appreciation.</li>
+    </ul>
+
+    <h3>$25 Backer</h3>
+    <ul>
+      <li>Everything in the $10 package.</li>
+      <li>A 10% discount on future rentals.</li>
+    </ul>
+
+    <h3>$50 Backer</h3>
+    <ul>
+      <li>Everything in the $25 package.</li>
+      <li>Priority booking for rental equipment.</li>
+      <li>Exclusive access to product updates.</li>
+    </ul>
+
+    <h3>$80 Backer</h3>
+    <ul>
+      <li>Everything in the $50 package.</li>
+      <li>Admission for two to a live musical event.</li>
+      <li>A 25% discount on future rentals.</li>
+    </ul>
+
+    <p>Every backer receives a gift certificate equal to their contribution amount for future rentals.</p>
+  </section>
+
+  <!-- Specifications -->
+  <section id="contact">
+    <h2 class="section-title">Specifications & Technical Details</h2>
+    <ul>
+      <li><strong>Software:</strong> Open-source, Mumble-based platform.</li>
+      <li><strong>Devices Supported:</strong> Mobile devices, desktops, iPads, Bluetooth headsets.</li>
+      <li><strong>Range:</strong> Short and long-distance communication (offline or internet-enabled).</li>
+      <li><strong>Security:</strong> Non-encrypted by default. Custom encryption available upon request.</li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Masterminds Rentals. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
