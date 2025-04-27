@@ -1,178 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="MastermindsRentals - Affordable, customizable event equipment rentals for schools, nonprofits, and event planners.">
-  <title>MastermindsRentals - Event Equipment Rentals</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="MastermindsRentals - Affordable, customizable event equipment rentals for schools, nonprofits, and event planners." />
+  <title>Masterminds Rentals | Event Equipment</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
+    :root {
+      --primary-color: #000;
+      --accent-color: #fff;
+      --font-main: 'Inter', sans-serif;
+    }
+
     body {
-      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      font-family: var(--font-main);
+      background-color: #f5f5f5;
+      color: var(--primary-color);
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    nav {
+      background-color: var(--primary-color);
+      color: var(--accent-color);
+      padding: 1rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-brand {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .nav-toggle span {
+      width: 25px;
+      height: 3px;
+      background: var(--accent-color);
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-direction: row;
+      gap: 1.5rem;
+      list-style: none;
       margin: 0;
       padding: 0;
-      background-color: #f9f9f9;
-      color: #333;
+      transition: max-height 0.3s ease;
     }
+
+    .nav-links li a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links li a:hover {
+      color: #ccc;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        width: 100%;
+        overflow: hidden;
+        max-height: 0;
+        margin-top: 0;
+      }
+
+      .nav-links.open {
+        max-height: 500px;
+        margin-top: 1rem;
+      }
+    }
+
     header {
-      background: #0066cc;
-      color: #fff;
-      padding: 50px 20px;
       text-align: center;
+      padding: 4rem 2rem;
+      background-color: var(--primary-color);
+      color: var(--accent-color);
     }
+
     header h1 {
       margin: 0;
-      font-size: 36px;
+      font-size: 2.5rem;
     }
-    header p {
-      font-size: 18px;
-      margin-top: 10px;
+
+    header h2 {
+      margin-top: 1rem;
+      font-size: 1.25rem;
+      font-weight: 400;
     }
+
     .cta-btn {
-      background: #ff6600;
-      color: #fff;
-      padding: 10px 20px;
-      border: none;
+      margin-top: 2rem;
+      background: var(--accent-color);
+      color: var(--primary-color);
+      padding: 0.75rem 1.5rem;
+      border: 2px solid var(--accent-color);
+      font-weight: 600;
       border-radius: 5px;
-      text-transform: uppercase;
       cursor: pointer;
+      transition: all 0.3s ease;
     }
+
+    .cta-btn:hover {
+      background: transparent;
+      color: var(--accent-color);
+    }
+
     section {
-      padding: 40px 20px;
+      padding: 4rem 2rem;
+      max-width: 1100px;
+      margin: auto;
     }
+
     .section-title {
       text-align: center;
-      font-size: 28px;
-      margin-bottom: 20px;
+      font-size: 2rem;
+      margin-bottom: 2rem;
     }
+
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
     }
+
     .grid-item {
-      background: #fff;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      background: var(--accent-color);
+      padding: 2rem;
       border-radius: 8px;
-      text-align: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     }
+
     footer {
-      background: #222;
-      color: #fff;
-      padding: 20px;
+      background: var(--primary-color);
+      color: var(--accent-color);
       text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+    }
+
+    ul {
+      padding-left: 1.25rem;
+    }
+
+    a {
+      color: var(--primary-color);
+      text-decoration: underline;
+    }
+
+    a:hover {
+      color: #666;
     }
   </style>
 </head>
 <body>
 
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-brand">Masterminds Rentals</div>
+    <div class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#who">Who We Are</a></li>
+      <li><a href="#rentals">Rentals</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#opensource">Open Source</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
   <header>
     <h1>Fun Event Systems & MasterMinds Rentals</h1>
-    <p>Transforming Gatherings into Unforgettable Experiences</p>
+    <h2>Transforming Gatherings into Unforgettable Experiences</h2>
     <button class="cta-btn" onclick="location.href='mailto:info@mastermindsyyc.xyz'">Book Now</button>
   </header>
 
-  <section>
+  <!-- Who We Are -->
+  <section id="who">
     <h2 class="section-title">Who We Are</h2>
-    <p>At Fun Event Systems, we’re dedicated to making your events unforgettable with affordable, top-tier equipment rentals. Specializing in schools, nonprofits, and event planners, we offer premium equipment from brands like Sennheiser and Audio-Technica to ensure your event sounds and looks its best.</p>
+    <p>At Fun Event Systems, we provide affordable, premium event rentals for schools, nonprofits, and planners. We use trusted brands like Sennheiser and Audio-Technica to ensure your event runs flawlessly.</p>
   </section>
 
-  <section>
+  <!-- Our Rentals -->
+  <section id="rentals">
     <h2 class="section-title">Our Rentals</h2>
-    <p>We provide a range of audio and lighting equipment for all types of events. Whether you’re organizing a school play, a corporate function, or a community gathering, we’ve got you covered with the best gear available. All of our rentals are professionally maintained and come with full support, ensuring your event goes off without a hitch.</p>
-
     <div class="grid">
-      <!-- Wireless Microphones Section -->
       <div class="grid-item">
-        <h3>Sennheiser Wireless Microphones</h3>
-        <p>Get crystal-clear sound with Sennheiser's high-quality wireless microphones. Perfect for public speakers, performers, or panel discussions.</p>
+        <h3>Sennheiser Wireless Mics</h3>
+        <p>Crystal-clear audio for speakers and performers.</p>
         <ul>
-          <li>Model: Sennheiser Freeport Wireless</li>
-          <li>Wide frequency response for high fidelity</li>
-          <li>Easy-to-use, reliable</li>
-          <li>Perfect for small or large venues</li>
+          <li>Freeport model</li>
+          <li>Reliable and easy-to-use</li>
+          <li>Great for any venue size</li>
         </ul>
       </div>
-
-      <!-- Audio-Technica Microphone Section -->
       <div class="grid-item">
-        <h3>Audio-Technica Wireless Microphones</h3>
-        <p>Audio-Technica's microphones are known for their durability and performance. A great option for events requiring consistent sound quality.</p>
+        <h3>Audio-Technica Mics</h3>
+        <p>Durable wireless microphones with digital clarity.</p>
         <ul>
-          <li>Model: Audio-Technica ATW</li>
-          <li>Digital wireless technology with clear audio</li>
+          <li>ATW series</li>
           <li>Automatic frequency selection</li>
-          <li>Range of up to 50 meters</li>
+          <li>Up to 50m range</li>
         </ul>
       </div>
-
-      <!-- Speakers & Amplifiers Section -->
       <div class="grid-item">
         <h3>Speakers & Amplifiers</h3>
-        <p>Powerful sound systems that deliver crisp, clear audio for any event, from small classrooms to large auditoriums. We offer both portable and fixed setups for your needs.</p>
+        <p>Powerful sound systems for events of all sizes.</p>
         <ul>
-          <li>High-quality, durable audio equipment</li>
-          <li>Range of amplifier options to suit different event sizes</li>
-          <li>Flexible and easy-to-use setups</li>
+          <li>High-quality audio output</li>
+          <li>Portable and fixed options</li>
+          <li>Tailored for classrooms or auditoriums</li>
         </ul>
       </div>
-
-      <!-- Lighting Systems Section -->
       <div class="grid-item">
         <h3>Lighting Systems</h3>
-        <p>Create the perfect atmosphere with customizable lighting systems. Whether it’s for stage productions or a party atmosphere, we have a variety of lighting options available.</p>
+        <p>Customize the ambiance of your event.</p>
         <ul>
           <li>LED stage lights</li>
           <li>Portable spotlights</li>
-          <li>Color-changing lights for ambiance</li>
+          <li>Color-changing lights</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <section>
+  <!-- Why Us -->
+  <section id="why">
     <h2 class="section-title">Why Choose Us?</h2>
-    <p>We are committed to offering the highest-quality equipment at affordable prices, with a focus on customer satisfaction. Here’s why you should choose us for your event:</p>
     <ul>
-      <li><strong>Reliable Brands:</strong> We provide the best equipment from trusted brands like Sennheiser and Audio-Technica, ensuring excellent sound and performance.</li>
-      <li><strong>Affordable Rentals:</strong> We offer budget-friendly pricing for schools, nonprofits, and smaller organizations without compromising on quality.</li>
-      <li><strong>Free Delivery & Setup:</strong> We will deliver and set up the equipment at your location, ensuring everything is ready for your event.</li>
-      <li><strong>Full Support:</strong> Our team is always on hand to assist with any technical support you might need during your event.</li>
+      <li><strong>Top Brands:</strong> Like Sennheiser and Audio-Technica</li>
+      <li><strong>Affordable Rates:</strong> Ideal for schools and nonprofits</li>
+      <li><strong>Delivery & Setup:</strong> Free with every rental</li>
+      <li><strong>Full Support:</strong> We’re with you every step</li>
     </ul>
   </section>
 
-  <section>
+  <!-- Testimonials -->
+  <section id="testimonials">
     <h2 class="section-title">Customer Testimonials</h2>
-    <p>"Very happy with the service provided, it's great that this is local, and they delivered the equipment right to me."</p>
-    <p>"The Sennheiser microphones we rented were fantastic. Our speakers were heard clearly, even in a large auditorium!"</p>
-    <p>"Great pricing and excellent support. The lighting system we rented helped create the perfect mood for our event. Highly recommend!"</p>
+    <p>"The equipment was delivered right on time. Fantastic local service!"</p>
+    <p>"Sennheiser mics worked beautifully in a large auditorium."</p>
+    <p>"Lighting setup really set the mood. Highly recommend!"</p>
   </section>
 
-  <!-- Open-Source Event Solutions Section -->
-  <section>
-    <h2 class="section-title">Explore Our Open-Source Event Solutions</h2>
-    <p>In addition to our rental services, we’re passionate about making event planning easier for everyone. Our open-source event management tools can help you organize and execute your next gathering with ease.</p>
+  <!-- Open Source Tools -->
+  <section id="opensource">
+    <h2 class="section-title">Explore Our Open-Source Tools</h2>
+    <p>We also provide tools to help with event planning:</p>
     <ul>
-      <li><strong>Event Management Software</strong> to schedule, track, and organize your event details.</li>
-      <li><strong>Inventory Tracking</strong> to keep tabs on your rental gear.</li>
-      <li><strong>Event Budget Planner</strong> to keep your costs under control.</li>
+      <li><strong>Management Software</strong> for organizing events</li>
+      <li><strong>Inventory Tracking</strong> for gear management</li>
+      <li><strong>Budget Planner</strong> for controlling costs</li>
     </ul>
   </section>
 
-  <section>
+  <!-- Contact -->
+  <section id="contact">
     <h2 class="section-title">Get in Touch</h2>
-    <p>For more information or to book equipment for your next event, email us at <a href="mailto:info@mastermindsyyc.xyz">info@mastermindsyyc.xyz</a>.</p>
+    <p>Email us at <a href="mailto:info@mastermindsyyc.xyz">info@mastermindsyyc.xyz</a> to book your next event rental!</p>
   </section>
 
-  <section>
-    <h2 class="section-title">Newsletter Coming Soon</h2>
-    <p>Stay tuned for updates, special offers, and more. Sign up for our newsletter soon!</p>
-  </section>
-
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Fun Event Systems. All rights reserved.</p>
   </footer>
 
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "raryzc34vq");
+  </script>
 </body>
 </html>
